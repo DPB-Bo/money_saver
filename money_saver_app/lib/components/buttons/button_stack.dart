@@ -3,16 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ButtonStackStyle extends StatefulWidget {
   final String upCaseText;
-
+  var SwitchNavigation;
   final String lowCaseText;
   // final double upContainerwidth;
   // final double upContainerheight;
   // final double lowContainerwidth;
   // final double lowContainerheight;
-  const ButtonStackStyle({
+  ButtonStackStyle({
     Key? key,
     required this.upCaseText,
     required this.lowCaseText,
+    required this.SwitchNavigation,
     // required this.upContainerwidth,
     // required this.upContainerheight,
     // required this.lowContainerwidth,
@@ -24,23 +25,26 @@ class ButtonStackStyle extends StatefulWidget {
 }
 
 class _ButtonStackStyleState extends State<ButtonStackStyle> {
-  var _changeColor = const Color(0x40000000);
+  var _StackButtonColor = const Color(0x40000000);
   @override
   Widget build(BuildContext context) {
     final _upCaseText = widget.upCaseText;
     final _lowCaseText = widget.lowCaseText;
+    final _SwitchNavigation = widget.SwitchNavigation;
     return Ink(
       width: MediaQuery.of(context).size.width * 0.305,
       height: MediaQuery.of(context).size.height * 0.065,
       child: InkWell(
         onTap: () {
           setState(() {
-            _changeColor = Colors.black;
+            _StackButtonColor = Colors.black;
             Future.delayed(const Duration(milliseconds: 200), () {
               setState(() {
-                _changeColor = const Color(0x40000000);
+                _StackButtonColor = const Color(0x40000000);
               });
             });
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => _SwitchNavigation));
           });
         },
         child: Stack(
@@ -49,7 +53,7 @@ class _ButtonStackStyleState extends State<ButtonStackStyle> {
             Container(
                 width: MediaQuery.of(context).size.width * 0.28,
                 height: MediaQuery.of(context).size.height * 0.055,
-                color: _changeColor),
+                color: _StackButtonColor),
             Align(
               alignment: Alignment.topLeft,
               child: Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:money_saver_app/components/buttons/button_stack.dart';
+import 'package:money_saver_app/screens/login_scr.dart';
 
 class StartNotLoginScreen extends StatefulWidget {
   const StartNotLoginScreen({Key? key}) : super(key: key);
@@ -60,11 +61,16 @@ class _StartNotLoginScreenState extends State<StartNotLoginScreen> {
                       margin: const EdgeInsets.only(left: 45, right: 45),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             ButtonStackStyle(
-                                upCaseText: 'L', lowCaseText: 'ogin'),
+                                upCaseText: 'L',
+                                lowCaseText: 'ogin',
+                                SwitchNavigation: LoginScreen()),
                             ButtonStackStyle(
-                                upCaseText: 'S', lowCaseText: 'ignup'),
+                              upCaseText: 'S',
+                              lowCaseText: 'ignup',
+                              SwitchNavigation: LoginScreen(),
+                            ),
                           ]),
                     ),
                   ],

@@ -1,0 +1,8 @@
+background colors: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xFFFD6E6A),
+          Color(0xFFFFC600),
+        ],
+      )

@@ -3,16 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ButtonStackStyle extends StatefulWidget {
   final String upCaseText;
-
   final String lowCaseText;
+  final SwitchNavigation;
   // final double upContainerwidth;
   // final double upContainerheight;
   // final double lowContainerwidth;
   // final double lowContainerheight;
-  const ButtonStackStyle({
+  ButtonStackStyle({
     Key? key,
     required this.upCaseText,
     required this.lowCaseText,
+    required this.SwitchNavigation,
     // required this.upContainerwidth,
     // required this.upContainerheight,
     // required this.lowContainerwidth,
@@ -27,6 +28,7 @@ class _ButtonStackStyleState extends State<ButtonStackStyle> {
   var _changeColor = const Color(0x40000000);
   @override
   Widget build(BuildContext context) {
+    final _SwitchNavigation = widget.SwitchNavigation;
     final _upCaseText = widget.upCaseText;
     final _lowCaseText = widget.lowCaseText;
     return Ink(
@@ -39,6 +41,8 @@ class _ButtonStackStyleState extends State<ButtonStackStyle> {
             Future.delayed(const Duration(milliseconds: 200), () {
               setState(() {
                 _changeColor = const Color(0x40000000);
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => _SwitchNavigation));
               });
             });
           });
